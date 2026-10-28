@@ -5,6 +5,7 @@ import MarqueeTicker from "@/components/MarqueeTicker";
 import StatsSection from "@/components/StatsSection";
 import FounderJourneySection from "@/components/FounderJourneySection";
 import FlagshipShowcase from "@/components/FlagshipShowcase";
+import OurFindsSection from "@/components/OurFindsSection";
 import ScrollReveal from "@/components/ScrollReveal";
 import ContactSection from "@/components/ContactSection";
 import SiteFooter from "@/components/SiteFooter";
@@ -64,6 +65,11 @@ const Index = () => {
       {/* Signature Flagship Initiatives (Bento Grid inspired by ecelliitg.in) */}
       <ScrollReveal delay={100}>
         <FlagshipShowcase />
+      </ScrollReveal>
+
+      {/* Our Finds: RSCOE Alumni & Member Startups */}
+      <ScrollReveal delay={100}>
+        <OurFindsSection />
       </ScrollReveal>
 
       {/* Previous Visionaries & Speakers Marquee */}

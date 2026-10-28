@@ -35,8 +35,12 @@ const searchableItems: SearchItem[] = [
   { id: "contact", title: "Contact Us", category: "Page", description: "Get in touch, collaboration requests & partner inquiries", path: "/contact" },
   { id: "esummit", title: "E-Summit '26 Conclave", category: "Page", description: "Our largest annual entrepreneurship festival & summit", path: "/esummit" },
   { id: "register", title: "Summit Registration", category: "Page", description: "Register for upcoming events and grab summit passes", path: "/register" },
+  { id: "our-finds", title: "Our Finds", category: "Page", description: "Companies founded by E-Cell RSCOE members and alumni", path: "/#our-finds", badge: "Ventures" },
 
   // Events & Flagships
+  { id: "find-learnx", title: "LearnX by Parth Amilkanthwar", category: "Event", description: "EdTech & peer learning platform founded by E-Cell RSCOE member Parth", path: "/#our-finds", badge: "Our Finds" },
+  { id: "find-devcraft", title: "DevCraft Studio", category: "Event", description: "High-velocity MVP engineering & SaaS studio founded by alumni", path: "/#our-finds", badge: "Our Finds" },
+  { id: "find-ecosphere", title: "EcoSphere Solutions", category: "Event", description: "Circular packaging & carbon tracking startup incubated at RSCOE", path: "/#our-finds", badge: "Our Finds" },
   { id: "fish-tank", title: "Fish Tank '26", category: "Event", description: "Shark Tank style pitch arena with real angel investors & IIT Bombay Eureka", path: "/events", badge: "Flagship" },
   { id: "brand-sprint", title: "Brand Sprint", category: "Event", description: "48-hour marketing, go-to-market and brand deployment sprint", path: "/events", badge: "Competition" },
   { id: "startup-arena", title: "Startup Arena & Pitch Desk", category: "Event", description: "Live investor showcase connecting student founders with venture capital", path: "/events", badge: "Investor Connect" },

@@ -22,6 +22,7 @@ import Team from "./pages/Team";
 import About from "./pages/About";
 import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
+import OurFindsPill from "@/components/OurFindsPill";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,9 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop /> {/* Forces page to top on every route change */}
         
+        {/* Floating Pill on bottom left across the entire website */}
+        <OurFindsPill />
+
         <div className="relative min-h-screen">
 
           {/* =========================================
