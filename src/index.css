@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&display=swap");@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 18% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 18% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 76% 45%;
+    --success-foreground: 210 40% 98%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 18% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 14% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 217 91% 60%;
+
+    --chart-1: 217 91% 60%;
+    --chart-2: 142 76% 45%;
+    --chart-3: 280 65% 60%;
+    --chart-4: 45 93% 55%;
+    --chart-5: 0 84% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(280 65% 60%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220 20% 4%) 0%, hsl(220 18% 8%) 100%);
+    --glow-primary: 0 0 40px hsl(217 91% 60% / 0.3);
+  }
+
+  .dark {
+    --background: 220 20% 4%;
+    --foreground: 210 40% 98%;
+    --card: 220 18% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 18% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 20% 4%;
+    --secondary: 220 14% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 14% 14%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 220 20% 4%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Poppins', sans-serif;  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(217 91% 60% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(217 91% 60% / 0.5); }
+  }
+}
+@layer utilities {
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 40s linear infinite;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 40s linear infinite;
+  }
+  /* =========================================
+   E-CELL RSCOE GALLERY SCROLLING
+   ========================================= */
+
+@keyframes gallery-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes gallery-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Row moving LEFT */
+.gallery-scroll-left {
+  animation: gallery-scroll-left 30s linear infinite;
+}
+
+/* Row moving RIGHT */
+.gallery-scroll-right {
+  animation: gallery-scroll-right 30s linear infinite;
+}
+
+/* Pause when user hovers over a row */
+.gallery-track:hover {
+  animation-play-state: paused;
+}
+
+/* Prevent animation from causing horizontal page scroll */
+.gallery-track {
+  will-change: transform;
+}
+
+/* =========================================
+   STATS CONTINUOUS SHIMMER EFFECT
+   ========================================= */
+
+.stats-card {
+  position: relative;
+}
+
+.stats-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.03) 60%,
+    transparent 80%
+  );
+  transform: skewX(-20deg);
+  animation: stats-shine 4s ease-in-out infinite;
+}
+
+.stats-card:nth-child(2) .stats-shine {
+  animation-delay: 1s;
+}
+
+.stats-card:nth-child(3) .stats-shine {
+  animation-delay: 2s;
+}
+
+.stats-card:nth-child(4) .stats-shine {
+  animation-delay: 3s;
+}
+
+@keyframes stats-shine {
+  0% {
+    left: -100%;
+  }
+
+  45% {
+    left: 150%;
+  }
+
+  100% {
+    left: 150%;
+  }
+}
+/* =========================================
+   TEAM PAGE
+   ========================================= */
+
+/* Gradient text */
+.team-gradient-text {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)),
+    hsl(var(--foreground)),
+    hsl(var(--primary))
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: team-gradient 4s linear infinite;
+}
+
+@keyframes team-gradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+/* =========================================
+   PAGE ENTRANCE
+   ========================================= */
+
+.team-fade-up {
+  animation: team-fade-up 0.8s ease-out both;
+}
+
+.team-fade-up-delay {
+  animation: team-fade-up 0.8s 0.2s ease-out both;
+}
+
+@keyframes team-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   LEADERSHIP CARDS
+   ========================================= */
+
+.team-leader-card {
+  opacity: 0;
+  animation: team-leader-enter 0.8s ease-out forwards;
+}
+
+@keyframes team-leader-enter {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   ROTATING PHOTO RINGS
+   ========================================= */
+
+.team-rotate-ring {
+  animation: team-rotate 12s linear infinite;
+}
+
+.team-rotate-ring-reverse {
+  animation: team-rotate-reverse 18s linear infinite;
+}
+
+@keyframes team-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes team-rotate-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+/* =========================================
+   PHOTO SHINE
+   ========================================= */
+
+.team-image-shine {
+  animation: team-image-shine 5s ease-in-out infinite;
+}
+
+@keyframes team-image-shine {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  35% {
+    transform: translateX(120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+
+/* =========================================
+   FLOATING DOTS
+   ========================================= */
+
+.team-floating-dot {
+  animation: team-float 3s ease-in-out infinite;
+}
+
+.team-floating-dot-delay {
+  animation: team-float 3s 1s ease-in-out infinite;
+}
+
+@keyframes team-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+
+/* =========================================
+   CORE TEAM ENTRANCE
+   ========================================= */
+
+.team-member-card {
+  opacity: 0;
+  animation: team-member-enter 0.7s ease-out forwards;
+}
+
+@keyframes team-member-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   REDUCE MOTION FOR ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .team-gradient-text,
+  .team-rotate-ring,
+  .team-rotate-ring-reverse,
+  .team-image-shine,
+  .team-floating-dot,
+  .team-floating-dot-delay,
+  .team-fade-up,
+  .team-fade-up-delay,
+  .team-leader-card,
+  .team-member-card {
+    animation: none !important;
+  }
+
+  .team-leader-card,
+  .team-member-card {
+    opacity: 1;
+  }
+}
+/* =========================================
+   E-CELL PAGE OPENING EFFECT
+   ========================================= */
+
+.page-entrance {
+  animation: page-entrance-reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+@keyframes page-entrance-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+
+  50% {
+    opacity: 0.85;
+    filter: blur(1px);
+  }
+  80% {
+    opacity: 0.9;
+    filter: blur(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+/* =========================================
+   SCROLL REVEAL
+   ========================================= */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  filter: blur(5px);
+
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+}
+
+@keyframes slowMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slow-marquee {
+  display: flex;
+  width: max-content;
+  animation: slowMarquee 40s linear infinite;
+}
+
+/* Pauses the slow movement when you hover over the speakers so you can read their details */
+.animate-slow-marquee:hover {
+  animation-play-state: paused;
+}
