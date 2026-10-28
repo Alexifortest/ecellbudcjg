@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import SiteFooter from "@/components/SiteFooter";
-import { Phone, Mail, Instagram, Linkedin, MapPin } from "lucide-react";
+import { Phone, Mail, Instagram, Youtube, Linkedin, MapPin } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -98,6 +98,24 @@ const Contact = () => {
                     className="text-foreground hover:text-primary transition-colors font-medium"
                   >
                     @ecellrscoe
+                  </a>
+                </div>
+              </div>
+
+              {/* YouTube */}
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-2xl bg-red-500/10 text-red-500 border border-red-500/20 shrink-0">
+                  <Youtube className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider">YouTube</span>
+                  <a 
+                    href="https://www.youtube.com/@E-CellRSCOE" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    @E-CellRSCOE
                   </a>
                 </div>
               </div>

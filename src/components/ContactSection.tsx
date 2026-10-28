@@ -1,4 +1,4 @@
-import { Mail, MapPin, Instagram, Linkedin , Phone} from "lucide-react";
+import { Mail, MapPin, Instagram, Youtube, Linkedin , Phone} from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -112,9 +112,32 @@ const ContactSection = () => {
                     <p className="text-sm font-medium">Instagram</p>
                     <a
                       href="https://www.instagram.com/e_cell_rscoe?igsh=MThkejdvZGdyajQ1MQ=="
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-sm text-blue-500 hover:underline"
                     >
                       @e_cell_rscoe
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* YouTube */}
+              <div className="rounded-2xl border border-border/60 bg-background/70 p-5">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500/10 text-red-500">
+                    <Youtube className="h-4 w-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-medium">YouTube</p>
+                    <a
+                      href="https://www.youtube.com/@E-CellRSCOE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-blue-500 hover:underline"
+                    >
+                      @E-CellRSCOE
                     </a>
                   </div>
                 </div>

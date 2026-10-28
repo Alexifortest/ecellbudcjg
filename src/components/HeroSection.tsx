@@ -1,91 +1,111 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, ArrowDown } from "lucide-react";
+import { ArrowRight, Sparkles, Flame, Users, Trophy, ExternalLink } from "lucide-react";
 import heroBgImage from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 bg-black text-white">
+    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden pt-28 pb-20 bg-black text-white">
       
-      {/* ================= LAYER 1: Base Black & Grids (Bottom) ================= */}
-      <div className="absolute inset-0 bg-black z-0" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-black to-black z-0" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-float z-0" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl animate-float z-0" style={{ animationDelay: "-3s" }} />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] z-0" />
+      {/* ================= LAYER 1: Deep Obsidian Carbon & Ambient Lights ================= */}
+      <div className="absolute inset-0 bg-[#06080e] z-0" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/25 via-[#06080e]/90 to-[#06080e] z-0" />
+      
+      {/* Animated glowing orbs */}
+      <div className="absolute top-1/4 left-1/5 w-[500px] h-[500px] bg-cyan-600/15 rounded-full blur-[140px] animate-float z-0 pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/5 w-[500px] h-[500px] bg-purple-600/15 rounded-full blur-[140px] animate-float z-0 pointer-events-none" style={{ animationDelay: "-3s" }} />
 
-      {/* ================= LAYER 2: Background Image (Above Grids, Below Headings) ================= */}
+      {/* Cyber Grid Lines */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 z-10 pointer-events-none"
+        className="absolute inset-0 z-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px"
+        }}
+      />
+
+      {/* ================= LAYER 2: Background Image Overlay ================= */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 z-0 pointer-events-none mix-blend-screen"
         style={{ backgroundImage: `url(${heroBgImage})` }}
       />
-      {/* Dark tint overlay right over the image to keep text readable */}
-      <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-transparent to-[#06080e]/80 z-0 pointer-events-none" />
 
-      {/* ================= LAYER 3: Main Headings & Content (Top Layer) ================= */}
-      <div className="container mx-auto px-6 relative z-20 max-w-5xl">
-        <div className="flex flex-col items-start text-left max-w-3xl">
+      {/* ================= LAYER 3: Hero Content ================= */}
+      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
+        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           
-          {/* Top Badge */}
-          
+          {/* Live Status Pill */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl mb-8 shadow-[0_0_20px_rgba(6,182,212,0.15)] group hover:border-cyan-400/50 transition-all duration-300">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+            </span>
+            <span className="text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase text-cyan-300">
+              JSPM'S RSCOE ENTREPRENEURSHIP CELL • 2026 ACTIVE
+            </span>
+          </div>
 
-          {/* Main Title */}
-          <h1 style={{fontSize: "70px"}} className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight uppercase leading-none mb-6 text-white">
-            EMPOWERING FUTURE <br />
-            <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
-              ENTREPRENEURS
+          {/* Main Kinetic Headline */}
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight uppercase leading-[0.95] mb-6 text-white">
+            WHERE IDEAS <br />
+            <span className="bg-gradient-to-r from-cyan-400 via-indigo-300 to-pink-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(6,182,212,0.3)]">
+              IGNITE & SCALE
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 max-w-2xl">
-            E-Cell RSCOE is a community-driven hub at JSPM's RSCOE, Pune, where student ideas transform into scalable ventures through mentorship and innovation.
+          <p className="text-base sm:text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl font-light">
+            The central launchpad at JSPM’s RSCOE, Pune. Transforming student ambition into venture-backed startups through elite mentorship, capital runways, and competitive pitch arenas.
           </p>
 
-          {/* Clean Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4 mb-12 w-full sm:w-auto">
-            <div className="relative group p-0.5 rounded-xl bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-600 shadow-[0_0_25px_rgba(20,184,166,0.35)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all duration-300">
+          {/* High-Impact Action Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-14 w-full sm:w-auto">
+            
+            {/* Primary Magnetic Glow Button */}
+            <div className="relative group p-0.5 rounded-2xl bg-gradient-to-r from-cyan-500 via-indigo-500 to-pink-500 shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_45px_rgba(6,182,212,0.7)] transition-all duration-300 active:scale-95">
               <Link
-                to="/about"
-                className="relative flex items-center justify-center gap-2 px-6 py-3 rounded-[10px] bg-[#070b13]/90 hover:bg-[#070b13]/70 backdrop-blur-md overflow-hidden transition-all duration-300 font-bold text-sm tracking-wide text-white group-hover:text-cyan-200"
+                to="/events"
+                className="relative flex items-center justify-center gap-3 px-8 py-4 rounded-[14px] bg-[#070b14] hover:bg-[#070b14]/80 backdrop-blur-md overflow-hidden transition-all duration-300 font-extrabold text-sm tracking-wider uppercase text-white"
               >
-                <div 
-                  className="absolute inset-0 opacity-40 group-hover:opacity-75 transition-opacity duration-300 pointer-events-none"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(to right, rgba(20, 184, 166, 0.3) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(6, 182, 212, 0.3) 1px, transparent 1px)
-                    `,
-                    backgroundSize: "14px 14px"
-                  }}
-                />
-                <span className="relative z-10">Learn More</span>
+                <span>Explore Initiatives</span>
+                <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </div>
-            <Link to="/events">
-              <Button size="lg" variant="outline" className="border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-base px-8 py-6 rounded-xl backdrop-blur-sm">
-                Our Initiatives <ArrowDown className="w-4 h-4 ml-2" />
+
+            {/* Secondary Glass Button */}
+            <Link to="/about">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold text-sm tracking-wider uppercase px-8 py-7 rounded-2xl backdrop-blur-md hover:border-white/40 transition-all duration-300 active:scale-95"
+              >
+                About Ecosystem
               </Button>
             </Link>
+
           </div>
 
-          {/* Stats & Clickable Handle Banner */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md w-full max-w-xl">
-            <div className="border-b sm:border-b-0 sm:border-r border-white/10 pb-4 sm:pb-0 sm:pr-4">
-              <p className="text-xs text-blue-400 font-bold uppercase tracking-widest">2026 IMPACT</p>
-              <p className="text-xl md:text-2xl font-black text-white mt-1 tracking-tight">
-                280+ SUMMIT ATTENDEES
-              </p>
+          {/* Live Ecosystem Metric Dock */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-6 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl w-full shadow-2xl">
+            <div className="text-center p-3 border-r border-white/10 last:border-r-0">
+              <p className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">1,800+</p>
+              <p className="text-[11px] text-cyan-400 font-bold uppercase tracking-wider mt-1">Community Members</p>
             </div>
-            <div className="sm:pl-2">
-              <p className="text-xs text-blue-400 font-bold uppercase tracking-widest">OFFICIAL HANDLE</p>
-              <a 
-                href="https://www.instagram.com/e_cell_rscoe?igsi=MThkejdvZGdyajQ1MQ=="
-                className="inline-flex items-center gap-1.5 text-xl md:text-2xl font-black text-white hover:text-blue-400 transition-colors mt-1 group"
-              >
-                <span>@E_CELL_RSCOE</span>
-                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-blue-400 transition-colors" />
-              </a>
+            <div className="text-center p-3 border-r border-white/10 last:border-r-0">
+              <p className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">50+</p>
+              <p className="text-[11px] text-purple-400 font-bold uppercase tracking-wider mt-1">Ventures Mentored</p>
+            </div>
+            <div className="text-center p-3 border-r border-white/10 last:border-r-0">
+              <p className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">₹2.5Cr+</p>
+              <p className="text-[11px] text-emerald-400 font-bold uppercase tracking-wider mt-1">Funding Network</p>
+            </div>
+            <div className="text-center p-3">
+              <p className="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">280+</p>
+              <p className="text-[11px] text-pink-400 font-bold uppercase tracking-wider mt-1">Summit Attendees</p>
             </div>
           </div>
 

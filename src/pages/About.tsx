@@ -207,7 +207,7 @@ export default function About() {
             </h2>
             <p className="text-2xl sm:text-4xl font-black text-white mt-1">Core Platform & Branch Tree</p>
             <p className="text-gray-400 text-sm max-w-md mx-auto mt-2">
-              Our central nerve center coordinating support, infrastructure, and resources across all operational pillars.
+              Our central nerve center coordinating support, infrastructure, and resources across all operational initiatives.
             </p>
           </div>
 

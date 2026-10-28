@@ -46,7 +46,7 @@ export default function SiteFooter() {
 
             {/* YouTube */}
             <a
-              href="https://youtube.com/@e-cellrscoe?si=qJA25JZALRDefJ3p"
+              href="https://www.youtube.com/@E-CellRSCOE"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
